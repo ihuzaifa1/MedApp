@@ -13,16 +13,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutterflow_ui: ^0.2.0+1
-  firebase_auth: 4.15.2
-  firebase_auth_platform_interface: 7.0.8
-  firebase_auth_web: 5.8.11
-  firebase_core: 2.24.2
-  firebase_core_platform_interface: 5.0.0
-  firebase_core_web: 2.10.0
-  firebase_performance: 0.9.3+8
-  firebase_performance_platform_interface: 0.1.4+16
-  firebase_performance_web: 0.1.4+16
+
 
 
 
