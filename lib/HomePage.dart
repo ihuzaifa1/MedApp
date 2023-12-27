@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicare_dart/LoginPage.dart';
 
 class HomePage extends StatelessWidget{
   @override
@@ -61,8 +62,8 @@ class HomePage extends StatelessWidget{
                   borderRadius: BorderRadius.circular(10),
                   child: InkWell(
                     onTap: (){
-                      // Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                      // ));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),
+                      ));
                     },
                     child: Padding(padding: EdgeInsets.symmetric(vertical: 12,horizontal: 35),
                     child: Text(
@@ -77,8 +78,8 @@ class HomePage extends StatelessWidget{
                   borderRadius: BorderRadius.circular(10),
                   child: InkWell(
                     onTap: (){
-                      // Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                      // ));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),
+                      ));
                     },
                     child: Padding(padding: EdgeInsets.symmetric(vertical: 12,horizontal: 35),
                       child: Text(
