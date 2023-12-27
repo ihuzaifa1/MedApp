@@ -19,7 +19,23 @@ class HomePage extends StatelessWidget{
             },
                 child: Text("Skip",style: TextStyle(color: Colors.black,fontSize: 20,),),
             ),
-            )
+            ),
+
+
+            SizedBox(height: 0,),
+            Padding(padding: EdgeInsets.all(0),
+              child: Image.asset("assets/images/home.png"),
+            ),
+            SizedBox(height: 50,),
+            Text("Embark on your journey to wellness with MedApp, where compassionate care meets seamless accessibility. Get started or log in to experience healthcare at your fingertips.",
+            textAlign: TextAlign.justify,
+              style: TextStyle(
+              color: Colors.black,
+              fontSize: 19,
+              fontWeight: FontWeight.w400,
+              letterSpacing: 1,
+              wordSpacing: 2,
+            ),),
           ],
         ),
       ),
