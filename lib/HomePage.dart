@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medicare_dart/LoginPage.dart';
+import 'package:medicare_dart/SignUpPage.dart';
 
 class HomePage extends StatelessWidget{
   @override
@@ -16,8 +17,8 @@ class HomePage extends StatelessWidget{
             Align(alignment: Alignment.centerRight,
             child: TextButton(
             onPressed: (){
-              // Navigator.push(context, MaterialPageRoute(builder: (context) =>
-              // ));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),
+              ));
             },
                 child: Text("Skip",style: TextStyle(color: Colors.black,fontSize: 20,),),
             ),
@@ -67,7 +68,7 @@ class HomePage extends StatelessWidget{
                     },
                     child: Padding(padding: EdgeInsets.symmetric(vertical: 12,horizontal: 35),
                     child: Text(
-                      "Doctor",
+                      "Login",
                       style: TextStyle(color: Colors.white,fontSize: 22,fontWeight: FontWeight.bold),
                     ),
                     ),
@@ -78,12 +79,12 @@ class HomePage extends StatelessWidget{
                   borderRadius: BorderRadius.circular(10),
                   child: InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage(),
                       ));
                     },
                     child: Padding(padding: EdgeInsets.symmetric(vertical: 12,horizontal: 35),
                       child: Text(
-                        "Patient",
+                        "SignUp",
                         style: TextStyle(color: Colors.white,fontSize: 22,fontWeight: FontWeight.bold),
                       ),
                     ),
