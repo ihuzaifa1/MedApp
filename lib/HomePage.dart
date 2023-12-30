@@ -5,30 +5,22 @@ import 'package:medicare_dart/SignUpPage.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "OnBoarding",
-          textAlign: TextAlign.center,
-        ),
-        backgroundColor: Colors.indigo,
-      ),
-      body: Material(
+    return Material(
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(20),
           child: Column(
             children: [
               SizedBox(
-                height: 10,
+                height: 30,
               ),
               Padding(
                 padding: EdgeInsets.all(1),
                 child: Image.asset("assets/images/home.png"),
               ),
               SizedBox(
-                height: 18,
+                height: 23,
               ),
               Text(
                 "MedApp",
@@ -42,7 +34,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 12,
+                height: 13,
               ),
               Text(
                 "Embark on your journey to wellness with MedApp, where compassionate care meets seamless accessibility. Get started or log in to experience healthcare at your fingertips.",
@@ -54,7 +46,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 60,
+                height: 65,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -112,7 +104,6 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
-      ),
     );
   }
 }
