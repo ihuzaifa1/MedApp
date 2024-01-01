@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicare_dart/MainPage.dart';
 import 'package:medicare_dart/SignUpPage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -28,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   label: Text("Enter your Email"),
-                  prefixIcon: Icon(Icons.email_outlined),
+                  prefixIcon: Icon(Icons.email,color: Colors.indigo,),
                 ),
               ),
               ),
@@ -38,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     label: Text("Enter your Password"),
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: Icon(Icons.lock,color: Colors.indigo,),
                     suffixIcon: InkWell(
                       onTap: (){
                         if(passToggle == true){
@@ -51,8 +52,8 @@ class _LoginPageState extends State<LoginPage> {
 
                         });
                       },
-                      child: passToggle ? Icon(Icons.remove_red_eye)
-                          : Icon(Icons.remove_red_eye_outlined),
+                      child: passToggle ? Icon(Icons.remove_red_eye,color: Colors.indigo,)
+                          : Icon(Icons.remove_red_eye_outlined,color: Colors.indigo,),
                     )
                   ),
                 ),
@@ -67,11 +68,11 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(10),
                     child: InkWell(
                       onTap: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //       builder: (context) => SignUpPage(),
-                        //     ));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MainPage(),
+                            ));
                       },
                       child: Padding(
                         padding:
