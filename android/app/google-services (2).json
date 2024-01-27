@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "904304752242",
+    "project_id": "medicare-aec3f",
+    "storage_bucket": "medicare-aec3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904304752242:android:8054f2ab25959720fd34eb",
+        "android_client_info": {
+          "package_name": "com.ORHANAX.medicare_dart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL6geEaQv6A_FY0Fc1eA1V93BwcPVY-qg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904304752242:android:f1244653a30412bafd34eb",
+        "android_client_info": {
+          "package_name": "com.example.medicare_dart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL6geEaQv6A_FY0Fc1eA1V93BwcPVY-qg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
