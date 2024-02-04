@@ -8,6 +8,14 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+
+  final _formkey = GlobalKey<FormState>();
+
+  final namecontroller = TextEditingController();
+  final phonecontroller = TextEditingController();
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -30,46 +38,80 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
 
-              SizedBox(height: 12,),
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: TextField(
-                  decoration: InputDecoration(
-                    label: Text("Full Name"),
-                    prefixIcon: Icon(Icons.person,color: Colors.indigo,),
-                  ),
-                ),
-              ),
+              Form(
+                  key: _formkey,
+                  child: Column(
+                    children: [
+                      SizedBox(height: 12,),
+                      Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: TextFormField(
+                          controller: namecontroller,
+                          decoration: InputDecoration(
+                            label: Text("Full Name"),
+                            prefixIcon: Icon(Icons.person,color: Colors.indigo,),
+                          ),
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return "Enter Name";
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
 
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: TextField(
-                  decoration: InputDecoration(
-                    label: Text("Phone Number"),
-                    prefixIcon: Icon(Icons.call,color: Colors.indigo,),
-                  ),
-                ),
-              ),
+                      Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: TextFormField(
+                          controller: phonecontroller,
+                          decoration: InputDecoration(
+                            label: Text("Phone Number"),
+                            prefixIcon: Icon(Icons.call,color: Colors.indigo,),
+                          ),
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return "Enter phone number";
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
 
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: TextField(
-                  decoration: InputDecoration(
-                    label: Text("Email "),
-                    prefixIcon: Icon(Icons.email,color: Colors.indigo,),
-                  ),
-                ),
-              ),
+                      Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: TextFormField(
+                          controller: emailcontroller,
+                          decoration: InputDecoration(
+                            label: Text("Email "),
+                            prefixIcon: Icon(Icons.email,color: Colors.indigo,),
+                          ),
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return "Enter Email";
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
 
-
-              Padding(
-                padding: const EdgeInsets.all(12),
-                child: TextField(
-                  decoration: InputDecoration(
-                    label: Text("Password"),
-                    prefixIcon: Icon(Icons.lock,color: Colors.indigo,),
-                  ),
-                ),
+                      Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: TextFormField(
+                          controller: passwordcontroller,
+                          decoration: InputDecoration(
+                            label: Text("Password"),
+                            prefixIcon: Icon(Icons.lock,color: Colors.indigo,),
+                          ),
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return "Enter password";
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                    ],
+                  )
               ),
 
               SizedBox(height: 15,),
@@ -82,11 +124,13 @@ class _SignUpPageState extends State<SignUpPage> {
                     borderRadius: BorderRadius.circular(10),
                     child: InkWell(
                       onTap: (){
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MainPage(),
-                            ));
+                        if(_formkey.currentState!.validate()){
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MainPage(),
+                              ));
+                        }
                       },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 35),

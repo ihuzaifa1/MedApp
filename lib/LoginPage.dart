@@ -9,6 +9,18 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool passToggle = true;
+
+  final _formkey = GlobalKey<FormState>();
+
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -18,46 +30,74 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
 
+
               SizedBox(height: 10,),
               Padding(padding: EdgeInsets.all(20),
               child: Image.asset("assets/images/spl.png"),
               ),
 
-              SizedBox(height: 15,),
-              Padding(padding: EdgeInsets.all(12),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  label: Text("Enter your Email"),
-                  prefixIcon: Icon(Icons.email,color: Colors.indigo,),
-                ),
-              ),
-              ),
-              Padding(padding: EdgeInsets.all(15),
-                child: TextField(
-                  obscureText: passToggle ? true : false,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    label: Text("Enter your Password"),
-                    prefixIcon: Icon(Icons.lock,color: Colors.indigo,),
-                    suffixIcon: InkWell(
-                      onTap: (){
-                        if(passToggle == true){
-                          passToggle = false;
-                        }
-                        else{
-                          passToggle = true;
-                        }
-                        setState(() {
+              Form(
+                  key: _formkey,
+                  child: Column(
+                    children: [
+                      SizedBox(height: 15,),
+                      Padding(padding: EdgeInsets.all(12),
+                        child: TextFormField(
+                          controller: emailcontroller,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            label: Text("Enter your Email"),
+                            prefixIcon: Icon(Icons.email,color: Colors.indigo,),
+                          ),
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return "Enter Email";
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
 
-                        });
-                      },
-                      child: passToggle ? Icon(Icons.remove_red_eye,color: Colors.indigo,)
-                          : Icon(Icons.remove_red_eye_outlined,color: Colors.indigo,),
-                    )
-                  ),
-                ),
+                      Padding(padding: EdgeInsets.all(15),
+                        child: TextFormField(
+                          controller: passwordcontroller,
+                          obscureText: passToggle ? true : false,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              label: Text("Enter your Password"),
+                              prefixIcon: Icon(Icons.lock,color: Colors.indigo,),
+                              suffixIcon: InkWell(
+                                onTap: (){
+                                  if(passToggle == true){
+                                    passToggle = false;
+                                  }
+                                  else{
+                                    passToggle = true;
+                                  }
+                                  setState(() {
+
+                                  });
+                                },
+                                child: passToggle ? Icon(Icons.remove_red_eye,color: Colors.indigo,)
+                                    : Icon(Icons.remove_red_eye_outlined,color: Colors.indigo,),
+                              )
+                          ),
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return "Enter Email";
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+
+
+                    ],
+                  )
               ),
+
+
+
               SizedBox(height: 23,),
               Padding(
                 padding: const EdgeInsets.all(10),
@@ -68,11 +108,13 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(10),
                     child: InkWell(
                       onTap: () {
+                      if(_formkey.currentState!.validate()){
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => MainPage(),
                             ));
+                      }
                       },
                       child: Padding(
                         padding:
