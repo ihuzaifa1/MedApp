@@ -1,7 +1,8 @@
 import 'dart:async';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:medicare_dart/HomePage.dart';
+import 'package:medicare_dart/MainPage.dart';
 
 
 
@@ -15,13 +16,29 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
 
-    Timer(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => HomePage(),
-          ));
-    });
+    final auth = FirebaseAuth.instance;
+    final user = auth.currentUser;
+
+    if(user != null){
+      Timer(Duration(seconds: 3), () {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MainPage(),
+            ));
+      });
+    }else{
+      Timer(Duration(seconds: 3), () {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomePage(),
+            ));
+      });
+    }
+
+
+
   }
 
   @override
