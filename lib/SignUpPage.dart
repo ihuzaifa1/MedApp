@@ -1,6 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:medicare_dart/LoginPage.dart';
 import 'package:medicare_dart/MainPage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -15,6 +17,8 @@ class _SignUpPageState extends State<SignUpPage> {
   final phonecontroller = TextEditingController();
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -125,11 +129,16 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: InkWell(
                       onTap: (){
                         if(_formkey.currentState!.validate()){
+                          _auth.createUserWithEmailAndPassword(
+                              email: emailcontroller.text.toString(),
+                              password: passwordcontroller.text.toString()
+                          );
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => MainPage(),
-                              ));
+                              )
+                          );
                         }
                       },
                       child: Padding(
