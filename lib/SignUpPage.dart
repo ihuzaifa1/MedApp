@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:medicare_dart/LoginPage.dart';
 import 'package:medicare_dart/MainPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:medicare_dart/navbar.dart';
 import 'package:medicare_dart/utilities/utils.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -29,7 +30,7 @@ class _SignUpPageState extends State<SignUpPage> {
           child: Column(
             children: [
               SizedBox(
-                height: 10,
+                height: 35,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -151,7 +152,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => MainPage(),
+                                  builder: (context) => navbar(),
                                 ));
                           }).onError((error, stackTrace) {
                             utils().toastmessage(error.toString());

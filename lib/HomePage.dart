@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 30,
+              height: 80,
             ),
             Padding(
               padding: EdgeInsets.all(1),

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:medicare_dart/HomePage.dart';
 import 'package:medicare_dart/MainPage.dart';
+import 'package:medicare_dart/navbar.dart';
 
 
 
@@ -24,7 +25,7 @@ class _SplashPageState extends State<SplashPage> {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => MainPage(),
+              builder: (context) => navbar(),
             ));
       });
     }else{
