@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medicare_dart/MainPage.dart';
+import 'package:medicare_dart/chatbot.dart';
 
 class navbar extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class _navbarState extends State<navbar> {
   int _selectedscreen = 0;
   final _screens = [
     MainPage(),
-    Container(),
+    chatbot(),
   ];
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medicare_dart/profile.dart';
 
 class MainPage extends StatelessWidget{
   @override
@@ -87,7 +88,13 @@ class MainPage extends StatelessWidget{
                 ),
               ),
               InkWell(
-                onTap: (){},
+                onTap: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => profile(),
+                      ));
+                },
                 child: Container(
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
