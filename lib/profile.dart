@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:medicare_dart/LoginPage.dart';
 
 class profile extends StatefulWidget{
   @override
@@ -6,6 +9,8 @@ class profile extends StatefulWidget{
 }
 
 class _profileState extends State<profile> {
+
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context){
     return Material(
@@ -95,6 +100,32 @@ class _profileState extends State<profile> {
                 ),),
               trailing: Icon(Icons.arrow_forward_ios_rounded),
             ),
+            SizedBox(height: 30,),
+            Material(
+              color: Colors.indigo,
+              borderRadius: BorderRadius.circular(10),
+              child: InkWell(
+                onTap: (){
+                  auth.signOut().then((value){
+                   Navigator.push(context,
+                       MaterialPageRoute(builder: (context) => LoginPage()));
+                  });
+                },
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 5,),
+                child: Center(
+                  child: Text(
+                    "Log Out",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              ),
+
+            )
 
           ],
         ),
